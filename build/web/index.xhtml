@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <ui:define name="resources">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+            
+        </ui:define>
+    </h:head>
+    <h:body>
+        <h:dataTable binding="#{table}" value="#{student.list}" var="l"   
+class="table table-striped table-hover table-bordered"> 
+<h:column>  
+<f:facet name="header">RollNumber</f:facet>  
+<h:outputText value="#{l.rollNumber}"/>  
+</h:column>  
+<h:column>  
+<f:facet name="header">Name</f:facet>  
+<h:outputText value="#{l.name}"/>  
+</h:column>  
+<h:column>  
+<f:facet name="header">Gender</f:facet>  
+<h:outputText value="#{l.gender}"/>  
+</h:column>
+ 
+<!--<h:column>  
+<f:facet name="header">Delete</f:facet>  
+<h:commandButton action = "#{user.delete(u.id)}" value="Delete" class="btn btn-danger">  
+</h:commandButton>  
+</h:column>  -->
+</h:dataTable>
+        <h:form>
+        <h:inputText value="#{student.searchText}" />
+        <f:facet name="header">Search</f:facet>  
+        <h:commandButton rendered="true" id="submit-button" action="index.xhtml" value="search" class="btn btn-primary">  
+</h:commandButton> 
+        </h:form>
+        <h:outputScript name="https://code.jquery.com/jquery-3.2.1.slim.min.js" />
+        <h:outputScript name="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" />
+        <h:outputScript name="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" />
+    </h:body>
+</html>
+
